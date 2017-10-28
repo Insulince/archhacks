@@ -83,7 +83,7 @@
     "prefer-const": true,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
     "radix": true,
     "semicolon": [
@@ -118,13 +118,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "arch-hacks",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "arch-hacks",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
