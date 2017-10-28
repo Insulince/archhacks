@@ -1,6 +1,6 @@
 <div id="dropdown-wrapper">
   <ng-container *ngFor="let dropdownItem of dropdownItems">
-    <div class="dropdown-item">
+    <div class="dropdown-item" (click)="clicked(dropdownItem);">
       {{dropdownItem.content}}
     </div>
   </ng-container>

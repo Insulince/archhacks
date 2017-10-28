@@ -1,7 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {Headers, Http, RequestOptions, Response} from "@angular/http";
-import {NDB_Item, NDB_Response} from "../model/ndb-response";
 import {DropdownItem} from "./dropdown/dropdown-item";
+import {NDB_Search_Item, NDB_Search_Response} from "../model/ndb-search-response";
+import {NDB_Nutrition_Response} from "../model/ndb-nutrition-response";
 
 @Component({
   selector: "arch-hacks-home",
@@ -39,11 +40,11 @@ export class HomeComponent implements OnInit {
       (response: Response): void => {
         const RESPONSE_BODY: string = response.json();
 
-        const NDB_RESPONSE: NDB_Response = new NDB_Response(RESPONSE_BODY);
+        const NDB_SEARCH_RESPONSE: NDB_Search_Response = new NDB_Search_Response(RESPONSE_BODY);
 
-        console.log(NDB_RESPONSE);
+        console.log(NDB_SEARCH_RESPONSE);
 
-        this.updateDropdown(NDB_RESPONSE);
+        this.updateDropdown(NDB_SEARCH_RESPONSE);
       },
       (error: any): void => {
         console.error(error);
@@ -51,19 +52,41 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  updateDropdown(NDBResponse: NDB_Response): void {
+  updateDropdown(NDBResponse: NDB_Search_Response): void {
     this.dropdownItems = [];
 
     NDBResponse.list.item.forEach(
-      (item: NDB_Item): void => {
-        const X: DropdownItem = new DropdownItem(item.name, null, null);
+      (item: NDB_Search_Item): void => {
+        const X: DropdownItem = new DropdownItem(item.name, NDB_Search_Item);
         this.dropdownItems.push(X);
       }
     );
   }
 
-  submitSearch(): void {
+  submitSearch(ndbno: string): void {
+    const BODY: any = {
+      "key": ndbno
+    };
 
+    const REQUEST_OPTIONS: RequestOptions = new RequestOptions(
+      {
+        "headers": new Headers(
+          {
+            "Content-Type": "application/json"
+          }
+        )
+      }
+    );
+
+    this.http.post(HomeComponent.BACK_END_BASE_URL + "/nutrition", BODY, REQUEST_OPTIONS).subscribe(
+      (response: Response): void => {
+        const RESPONSE_BODY: string = response.json();
+
+        const NDB_NUTRITION_RESPONSE: NDB_Nutrition_Response = new NDB_Nutrition_Response(RESPONSE_BODY);
+
+        console.log(NDB_NUTRITION_RESPONSE);
+      }
+    );
   }
 }
 
