@@ -17,7 +17,7 @@ const routes: Routes = [
     path: "**",
     redirectTo: "/page-not-found",
     pathMatch: "full"
-  },
+  }
 ];
 
 @NgModule({

@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
 
     NDBResponse.list.item.forEach(
       (item: NDB_Search_Item): void => {
-        const X: DropdownItem = new DropdownItem(item.name, NDB_Search_Item);
+        const X: DropdownItem = new DropdownItem(item.name, item);
         this.dropdownItems.push(X);
       }
     );
