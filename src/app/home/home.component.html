@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="center-align">Carb-O-Hydrate</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <input type="text" class="form-control" [(ngModel)]="searchString"/>
+      <arch-hacks-dropdown [dropdownItems]="dropdownItems"></arch-hacks-dropdown>
+    </div>
+    <div class="col-md-5">
+      <button type="button" class="btn btn-warning" (click)="querySearchString();">Dropdown</button>
+      <button type="button" class="btn btn-primary" (click)="submitSearch();">Carb me up baby</button>
+    </div>
+  </div>
+</div>
