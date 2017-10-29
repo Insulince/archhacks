@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {DropdownItem} from "./dropdown-item";
 
 declare let $: any;
@@ -12,9 +12,16 @@ export class DropdownComponent implements OnInit {
   @Input()
   dropdownItems: Array<DropdownItem> = [];
 
+  @Output()
+  onChoose: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() {
   }
 
   ngOnInit(): void {
- }
+  }
+
+  clicked(dropdownItem: DropdownItem): void {
+    this.onChoose.emit(dropdownItem.data.ndbno);
+  }
 }

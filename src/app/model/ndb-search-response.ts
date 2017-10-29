@@ -1,12 +1,12 @@
-export class NDB_Response {
-  list: NDB_List;
+export class NDB_Search_Response {
+  list: NDB_Search_List;
 
   constructor(rawResponse: any) {
-    this.list = new NDB_List(rawResponse.list);
+    this.list = new NDB_Search_List(rawResponse.list);
   }
 }
 
-export class NDB_List {
+export class NDB_Search_List {
   q: string;
   sr: string;
   ds: string;
@@ -15,7 +15,7 @@ export class NDB_List {
   total: number;
   group: string;
   sort: string;
-  item: Array<NDB_Item>;
+  item: Array<NDB_Search_Item> = [];
 
   constructor(rawList: any) {
     this.q = rawList.q;
@@ -26,17 +26,15 @@ export class NDB_List {
     this.total = rawList.total;
     this.group = rawList.group;
     this.sort = rawList.sort;
-
-    this.item = [];
     rawList.item.forEach(
       (rawItem: any): void => {
-        this.item.push(new NDB_Item(rawItem));
+        this.item.push(new NDB_Search_Item(rawItem));
       }
     );
   }
 }
 
-export class NDB_Item {
+export class NDB_Search_Item {
   offset: number;
   group: string;
   name: string;

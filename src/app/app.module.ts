@@ -9,13 +9,16 @@ import {RegistrationComponent} from './registration/registration.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {HttpService} from "./services/http.service";
+import {DataBridgeService} from "./services/data-bridge.service";
+import {MealItemComponent} from "./meal-item/meal-item.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DropdownComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MealItemComponent
   ],
   imports: [
     BrowserModule,
@@ -24,8 +27,9 @@ import {HttpService} from "./services/http.service";
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthService, HttpService],
+  providers: [AuthService, HttpService, DataBridgeService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule {
 }
