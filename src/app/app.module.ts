@@ -6,12 +6,15 @@ import {HttpModule} from "@angular/http";
 import {AppRoutingModule} from "./routing.module";
 import {HomeComponent} from "./home/home.component";
 import {DropdownComponent} from "./home/dropdown/dropdown.component";
+import {DataBridgeService} from "./services/data-bridge.service";
+import {MealItemComponent} from "./meal-item/meal-item.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DropdownComponent
+    DropdownComponent,
+    MealItemComponent
   ],
   imports: [
     BrowserModule,
@@ -19,8 +22,12 @@ import {DropdownComponent} from "./home/dropdown/dropdown.component";
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    DataBridgeService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
 }

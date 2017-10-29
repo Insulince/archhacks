@@ -3,6 +3,8 @@ import {Headers, Http, RequestOptions, Response} from "@angular/http";
 import {DropdownItem} from "./dropdown/dropdown-item";
 import {NDB_Search_Item, NDB_Search_Response} from "../model/ndb-search-response";
 import {NDB_Nutrition_Response} from "../model/ndb-nutrition-response";
+import {Router} from "@angular/router";
+import {DataBridgeService} from "../services/data-bridge.service";
 
 @Component({
   selector: "arch-hacks-home",
@@ -15,7 +17,9 @@ export class HomeComponent implements OnInit {
   searchString: string = "";
   dropdownItems: Array<DropdownItem> = [];
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private router: Router,
+              private dataBridgeService: DataBridgeService) {
   }
 
   ngOnInit(): void {
@@ -83,8 +87,20 @@ export class HomeComponent implements OnInit {
         const RESPONSE_BODY: string = response.json();
 
         const NDB_NUTRITION_RESPONSE: NDB_Nutrition_Response = new NDB_Nutrition_Response(RESPONSE_BODY);
-
         console.log(NDB_NUTRITION_RESPONSE);
+
+        this.router.navigate(["/meal-item"]).then(
+          (successfulNavigation: boolean): void => {
+            if (successfulNavigation) {
+              this.dataBridgeService.updateMealItem(NDB_NUTRITION_RESPONSE);
+            } else {
+              console.error("Unsuccessful navigation!");
+            }
+          }
+        );
+      },
+      (error: any): void => {
+        console.error(error);
       }
     );
   }
