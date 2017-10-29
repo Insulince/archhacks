@@ -71,8 +71,12 @@ export class NDB_Nutrition_Ing {
   upd: string;
 
   constructor(rawIng: any) {
-    this.desc = rawIng.desc;
-    this.upd = rawIng.upd;
+    try {
+      this.desc = rawIng.desc;
+      this.upd = rawIng.upd;
+    } catch (e) {
+      console.log(rawIng);
+    }
   }
 }
 
