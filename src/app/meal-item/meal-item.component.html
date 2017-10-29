@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="row margin-top">
-        <div class="col-md-6">
+        <div class="col-md-5 center-align">
           <section class="performance-facts">
             <header class="performance-facts__header">
               <h1 class="performance-facts__title">Nutrition Facts</h1>
@@ -205,10 +205,52 @@
             </p>
           </section>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div class="panel panel-default">
             <div class="panel-heading">
+              Diabetic Implications
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="current-blood-sugar-input">Current Blood Sugar</label>
+                    <input (change)="change();" type="text" class="form-control" id="current-blood-sugar-input" [(ngModel)]="currentBloodSugar"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="hours-since-last-dose-input">Hours Since Last Dose</label>
+                    <input (change)="change();" type="text" class="form-control" id="hours-since-last-dose-input" [(ngModel)]="hoursSinceLastDose"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="units-in-last-dose-imput">Units In Last Dose</label>
+                    <input (change)="change();" type="text" class="form-control" id="units-in-last-dose-imput" [(ngModel)]="unitsInLastDose"/>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="carbohydrate-ratio-input">Carbohydrate Ratio</label>
+                    <input (change)="change();" type="text" class="form-control" id="carbohydrate-ratio-input" [(ngModel)]="carbohydrateRatio"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="correction-ratio-input">Correction Ratio</label>
+                    <input (change)="change();" type="text" class="form-control" id="correction-ratio-input" [(ngModel)]="correctionRatio"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="target-blood-sugar-input">Target Blood Sugar</label>
+                    <input (change)="change();" type="text" class="form-control" id="target-blood-sugar-input" [(ngModel)]="targetBloodSugar"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="insulin-on-board-duration-input">Insulin On Board Duration</label>
+                <input (change)="change();" type="text" class="form-control" id="insulin-on-board-duration-input" [(ngModel)]="insulinOnBoardDuration"/>
+              </div>
 
+              <h3>Insulin Required:</h3>
+              <h3>{{insulinRequired.toFixed(2)}} units</h3>
+              <ng-container *ngIf="excess">
+                <h4 style="color: red">Warning! Even with this food, you are in danger of getting a low blood sugar!</h4>
+              </ng-container>
             </div>
           </div>
         </div>

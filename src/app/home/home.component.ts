@@ -118,7 +118,7 @@ export class HomeComponent implements OnInit {
       (item: NDB_Search_Item): void => {
         console.log(item.ndbno);
         if (typeof(item.ndbno) === "string") {
-          const X: DropdownItem = new DropdownItem(item.name, item);
+          const X: DropdownItem = new DropdownItem(item.name + " - " + item.name, item);
           this.dropdownItems.push(X);
         }
       }
