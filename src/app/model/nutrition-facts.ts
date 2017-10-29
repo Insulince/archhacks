@@ -142,6 +142,9 @@ export class NutritionFacts {
                 this.cholesterol = [nutrient.value, nutrient.unit];
               }
               break;
+              default:
+                console.log("hmmmm");
+              break;
             }
           }
         );
