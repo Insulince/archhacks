@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Coves";
+  src: url("./assets/Coves Light.otf") format("opentype");
+}
+
+* {
+  font-family: "Coves";
+}
+
 .left-align {
   text-align: left;
 }
@@ -198,7 +207,7 @@
 .backgroundDiv{
   height: 100vh;
   //background: url("./assets/image.png");
-  
+
 }
 .footer {
   position: absolute;
