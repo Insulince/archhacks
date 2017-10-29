@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col col-md-10"></div>
     <div class="col col-md-2">
-      <div class = "row center-align margin-top">
+      <div class="row center-align margin-top">
         <div class="col col-md-2 col-md-offset-4" (click)="login()">Login</div>
         <div class="col col-md-6" (click)="register()">Register</div>
       </div>
     </div>
   </div>
-  <div class = "row">
-    <div class = "col-md-10 col-md-offset-1">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
       <div class="row">
         <div class="col-md-12">
           <h1 class="center-align">Carb-O-Hydrate</h1>
@@ -18,12 +18,13 @@
       <div class="row">
         <div class="col-md-7">
           <input type="text" class="form-control" [(ngModel)]="searchString"/>
-          <arch-hacks-dropdown [dropdownItems]="dropdownItems"></arch-hacks-dropdown>
+          <arch-hacks-dropdown [dropdownItems]="dropdownItems" (onChoose)="submitSearch($event)"></arch-hacks-dropdown>
         </div>
         <div class="col-md-5">
           <button type="button" class="btn btn-warning" (click)="querySearchString();">Dropdown</button>
           <button type="button" class="btn btn-primary" (click)="submitSearch();">Carb me up baby</button>
         </div>
       </div>
+    </div>
   </div>
 </div>
