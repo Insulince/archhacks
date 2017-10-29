@@ -17,9 +17,33 @@ $(function () {
     }
     console.log('click');
   });
-  $('#dropdown-wrapper').click(function (e) {
+
+  $('#dropdown-wrapper, #dropdownSearch').click(function(e){
     e.stopPropagation();
   });
+
+  var dropdownIndex = -1;
+  $('#dropdownSearch').keyup(function(e){
+    if(e.keyCode == 40){
+      Navigate(1);
+    }
+    if(e.keyCode == 38){
+      Navigate(-1);
+    }
+  });
+
+  var Navigate = function(diff){
+    var dropdownCollection = $('.dropdown-item');
+    var cssClass = 'dropdown-item-hover';
+    dropdownIndex += diff;
+    if(dropdownIndex >= dropdownCollection.length){
+      dropdownIndex = 0;
+    }  
+    if(dropdownIndex < 0){
+      dropdownIndex = dropdownCollection.length - 1;
+    }
+    dropdownCollection.removeClass(cssClass).eq(dropdownIndex).addClass(cssClass);
+  }
 });
 
 @Component({
@@ -45,6 +69,15 @@ export class HomeComponent implements OnInit {
     this.user = JSON.parse(this.localStorageService.fetchValueFromKey("user"));
     console.log(this.user);
     this.loggedIn = this.user != null;
+
+    $('#dropdownSearch').keypress((e) => {
+      if(e.which == 13){
+        var searchString = $('.dropdown-item-hover')[0].innerHTML;
+        searchString = searchString.trim();
+        this.submitSearch(searchString);
+        console.log($('.dropdown-item-hover')[0].innerHTML);
+      }
+    });
   }
 
   querySearchString(): void {
