@@ -181,3 +181,30 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
+
+.cursorFix {
+  cursor:default;
+}
+
+.authHover:hover{
+  text-decoration: underline;
+}
+
+.imgSrc {
+  width: 150px;
+  height: 150px;
+}
+
+.backgroundDiv{
+  height: 100vh;
+  //background: url("./assets/image.png");
+  
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+}
