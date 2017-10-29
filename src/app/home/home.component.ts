@@ -5,6 +5,8 @@ import {Router} from "@angular/router";
 import {NDB_Search_Item, NDB_Search_Response} from "../model/ndb-search-response";
 import {NDB_Nutrition_Response} from "../model/ndb-nutrition-response";
 import {DataBridgeService} from "../services/data-bridge.service";
+import {LocalStorageService} from "../services/local-storage.service";
+import {User} from "../model/user";
 
 declare let $: any;
 
@@ -30,13 +32,19 @@ export class HomeComponent implements OnInit {
 
   searchString: string = "";
   dropdownItems: Array<DropdownItem> = [];
+  loggedIn: boolean = false;
+  user: User = null;
 
   constructor(private http: Http,
               private router: Router,
-              private dataBridgeService: DataBridgeService) {
+              private dataBridgeService: DataBridgeService,
+              private localStorageService: LocalStorageService) {
   }
 
   ngOnInit(): void {
+    this.user = JSON.parse(this.localStorageService.fetchValueFromKey("user"));
+    console.log(this.user);
+    this.loggedIn = this.user != null;
   }
 
   querySearchString(): void {
@@ -56,7 +64,7 @@ export class HomeComponent implements OnInit {
 
     this.http.post(HomeComponent.BACK_END_BASE_URL + "/suggestedSearch", BODY, REQUEST_OPTIONS).subscribe(
       (response: Response): void => {
-        const RESPONSE_BODY: string = response.json();
+        const RESPONSE_BODY: any = response.json();
 
         const NDB_SEARCH_RESPONSE: NDB_Search_Response = new NDB_Search_Response(RESPONSE_BODY);
 
@@ -98,7 +106,7 @@ export class HomeComponent implements OnInit {
 
     this.http.post(HomeComponent.BACK_END_BASE_URL + "/nutrition", BODY, REQUEST_OPTIONS).subscribe(
       (response: Response): void => {
-        const RESPONSE_BODY: string = response.json();
+        const RESPONSE_BODY: any = response.json();
 
         const NDB_NUTRITION_RESPONSE: NDB_Nutrition_Response = new NDB_Nutrition_Response(RESPONSE_BODY);
         console.log(NDB_NUTRITION_RESPONSE);
@@ -123,9 +131,21 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/registration"]);
   }
 
-  clickedBody(): void{
+  login(): void {
+    this.router.navigate(["/login"]);
+  }
+
+  logout(): void {
+    this.localStorageService.clearAll();
+    window.location.reload();
+  }
+
+  clickedBody(): void {
     document.getElementById("dropdown-wrapper").style.display = "none";
   }
 
+  clearStorage(): void {
+    this.localStorageService.clearAll();
+  }
 }
 
