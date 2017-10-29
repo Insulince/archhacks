@@ -6,6 +6,20 @@ import {NDB_Search_Item, NDB_Search_Response} from "../model/ndb-search-response
 import {NDB_Nutrition_Response} from "../model/ndb-nutrition-response";
 import {DataBridgeService} from "../services/data-bridge.service";
 
+declare let $: any;
+
+$(function(){
+  $(document).click(function(){
+    if($('.dropdown-item').is(':visible')){
+      $('.dropdown-item').fadeOut();
+    }
+    console.log('click');
+  });
+  $('#dropdown-wrapper').click(function(e){
+    e.stopPropagation();
+  });
+});
+
 @Component({
   selector: "arch-hacks-home",
   templateUrl: "./home.component.html",
