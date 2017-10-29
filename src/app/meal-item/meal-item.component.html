@@ -6,8 +6,7 @@
           <section class="performance-facts">
             <header class="performance-facts__header">
               <h1 class="performance-facts__title">Nutrition Facts</h1>
-              <p>Serving Size 1/2 cup (about 82g)
-              <p>Serving Per Container 8</p>
+              <p>Serving Size 100 grams
             </header>
             <table class="performance-facts__table">
               <thead>
@@ -21,7 +20,7 @@
               <tr>
                 <th colspan="2">
                   <b>Calories</b>
-                  {{nutritionFacts.energy[0] + nutritionFacts.energy[1]}}
+                  {{nutritionFacts.energy[0]}}
                 </th>
               </tr>
               <tr class="thick-row">
@@ -35,7 +34,7 @@
                   {{nutritionFacts.totalFat[0] + nutritionFacts.totalFat[1]}}
                 </th>
                 <td>
-                  <b>22%</b>
+                  <b>{{nutritionFacts.totalFat[2]}}%</b>
                 </td>
               </tr>
               <tr>
@@ -46,7 +45,7 @@
                   {{nutritionFacts.totalSaturated[0] + nutritionFacts.totalSaturated[1]}}
                 </th>
                 <td>
-                  <b>22%</b>
+                  <b>{{nutritionFacts.totalSaturated[2]}}%</b>
                 </td>
               </tr>
               <tr>
@@ -65,7 +64,7 @@
                   {{nutritionFacts.cholesterol[0] + nutritionFacts.cholesterol[1]}}
                 </th>
                 <td>
-                  <b>18%</b>
+                  <b>{{nutritionFacts.cholesterol[2]}}%</b>
                 </td>
               </tr>
               <tr>
@@ -74,7 +73,7 @@
                   {{nutritionFacts.sodium[0] + nutritionFacts.sodium[1]}}
                 </th>
                 <td>
-                  <b>2%</b>
+                  <b>{{nutritionFacts.sodium[2]}}%</b>
                 </td>
               </tr>
               <tr>
@@ -83,7 +82,7 @@
                   {{nutritionFacts.carbs[0] + nutritionFacts.carbs[1]}}
                 </th>
                 <td>
-                  <b>6%</b>
+                  <b>{{nutritionFacts.carbs[2]}}%</b>
                 </td>
               </tr>
               <tr>
@@ -94,7 +93,7 @@
                   {{nutritionFacts.fiber[0] + nutritionFacts.fiber[1]}}
                 </th>
                 <td>
-                  <b>4%</b>
+                  <b>{{nutritionFacts.fiber[2]}}%</b>
                 </td>
               </tr>
               <tr>
@@ -123,21 +122,21 @@
               <tr>
                 <td colspan="2">
                   Vitamin A
-                  10%
+                  {{nutritionFacts.vitaminA[2]}}%
                 </td>
                 <td>
                   Vitamin C
-                  0%
+                  {{nutritionFacts.vitaminC[2]}}%
                 </td>
               </tr>
               <tr class="thin-end">
                 <td colspan="2">
                   Calcium
-                  10%
+                  {{nutritionFacts.calcium[2]}}%
                 </td>
                 <td>
                   Iron
-                  6%
+                  {{nutritionFacts.iron[2]}}%
                 </td>
               </tr>
               </tbody>

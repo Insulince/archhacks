@@ -12,11 +12,11 @@ export class MealItemComponent implements OnInit {
   mealItem: NDB_Nutrition_Response;
   nutritionFacts: NutritionFacts;
 
-  constructor(private dataBridgeService: DataBridgeService) {
+  constructor(private dataBridgeService: DataBridgeService) {4
     dataBridgeService.onUpdateMealItem.subscribe(
       (mealItem: NDB_Nutrition_Response): void => {
-        this.mealItem = mealItem;
-        this.nutritionFacts = new NutritionFacts(this.mealItem);
+          this.mealItem = mealItem;
+          this.nutritionFacts = new NutritionFacts(this.mealItem);5
       }
     );
   }
