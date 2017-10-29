@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {NDB_Nutrition_Food_Object, NDB_Nutrition_Nutrient, NDB_Nutrition_Response} from "../model/ndb-nutrition-response";
+import {NDB_Nutrition_Response} from "../model/ndb-nutrition-response";
 import {DataBridgeService} from "../services/data-bridge.service";
 
 @Component({
@@ -19,17 +19,5 @@ export class MealItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let x = [];
-    this.mealItem.foods.forEach(
-      (food: NDB_Nutrition_Food_Object): void => {
-        food.food.nutrients.forEach(
-          (nutrient: NDB_Nutrition_Nutrient): void => {
-            x.push(nutrient.name);
-          }
-        );
-      }
-    );
-
-    console.log(x.join("|"));
   }
 }
