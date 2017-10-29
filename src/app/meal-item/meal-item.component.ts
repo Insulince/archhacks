@@ -4,6 +4,7 @@ import {DataBridgeService} from "../services/data-bridge.service";
 import {NutritionFacts} from "../model/nutrition-facts";
 import {User} from "../model/user";
 import {LocalStorageService} from "../services/local-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "arch-hacks-meal-item",
@@ -33,7 +34,8 @@ export class MealItemComponent implements OnInit {
   carbohydrateRatio: number = 10;
 
   constructor(private dataBridgeService: DataBridgeService,
-              private localStorageService: LocalStorageService) {
+              private localStorageService: LocalStorageService,
+              private router: Router) {
     dataBridgeService.onUpdateMealItem.subscribe(
       (mealItem: NDB_Nutrition_Response): void => {
           this.mealItem = mealItem;
@@ -70,5 +72,9 @@ export class MealItemComponent implements OnInit {
     } else {
       this.excess = false;
     }
+  }
+
+  back(){
+    this.router.navigate(['/home']);
   }
 }

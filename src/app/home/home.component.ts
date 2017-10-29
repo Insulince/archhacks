@@ -69,13 +69,11 @@ export class HomeComponent implements OnInit {
     this.user = JSON.parse(this.localStorageService.fetchValueFromKey("user"));
     console.log(this.user);
     this.loggedIn = this.user != null;
-
     $('#dropdownSearch').keypress((e) => {
       if(e.which == 13){
-        var searchString = $('.dropdown-item-hover')[0].innerHTML;
-        searchString = searchString.trim();
-        this.submitSearch(searchString);
-        console.log($('.dropdown-item-hover')[0].innerHTML);
+        var searchString = $('.dropdown-item-hover')[0].innerHTML.split('- ')[1];
+        console.log(searchString);
+        this.submitSearch(searchString.trim());
       }
     });
   }
@@ -118,7 +116,7 @@ export class HomeComponent implements OnInit {
       (item: NDB_Search_Item): void => {
         console.log(item.ndbno);
         if (typeof(item.ndbno) === "string") {
-          const X: DropdownItem = new DropdownItem(item.name + " - " + item.name, item);
+          const X: DropdownItem = new DropdownItem(item.name + " - " + item.ndbno, item);
           this.dropdownItems.push(X);
         }
       }
