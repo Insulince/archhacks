@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Headers, Http, RequestOptions, Response} from "@angular/http";
 import {NDB_Item, NDB_Response} from "../model/ndb-response";
 import {DropdownItem} from "./dropdown/dropdown-item";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "arch-hacks-home",
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   searchString: string = "";
   dropdownItems: Array<DropdownItem> = [];
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -65,5 +66,10 @@ export class HomeComponent implements OnInit {
   submitSearch(): void {
 
   }
+
+  register(): void {
+    this.router.navigate(["/registration"]);
+  }
+
 }
 
