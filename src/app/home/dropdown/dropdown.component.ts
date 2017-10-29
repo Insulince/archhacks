@@ -22,6 +22,7 @@ export class DropdownComponent implements OnInit {
   }
 
   clicked(dropdownItem: DropdownItem): void {
+    console.log(dropdownItem.data.ndbno);
     this.onChoose.emit(dropdownItem.data.ndbno);
   }
 
