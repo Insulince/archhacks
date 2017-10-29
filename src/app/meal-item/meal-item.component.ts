@@ -16,6 +16,7 @@ export class MealItemComponent implements OnInit {
   nutritionFacts: NutritionFacts;
 
   user: User = null;
+  loggedIn: boolean = false;
 
   insulinRequired: number = 0;
 
@@ -46,7 +47,7 @@ export class MealItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(this.localStorageService.fetchValueFromKey("user"));
-
+    this.loggedIn = this.user != null;
     if (this.user !== null) {
       this.insulinOnBoardDuration = this.user.insulinOnBoardDuration;
       this.correctionRatio = this.user.correctionRatio;
