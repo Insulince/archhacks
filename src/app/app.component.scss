@@ -1,0 +1,54 @@
+#image {
+  position: absolute;
+
+  height: 100vh;
+  width: auto;
+
+  top: 50%;
+
+  transform: translateX(-6%) translateY(-62%);
+
+  z-index: -1;
+
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  filter: blur(3px);
+}
+
+#image2 {
+  position: absolute;
+
+  height: 80vh;
+  width: auto;
+
+  top: 50%;
+
+  transform: translateX(75%) translateY(-10%) rotate(-45deg);
+
+  z-index: -1;
+
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  filter: blur(5px);
+}
+
+#image-container {
+  top: 0;
+  left: 0;
+
+  position: absolute;
+
+  height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
+  z-index: -1;
+}
