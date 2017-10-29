@@ -10,14 +10,14 @@ import {User} from "../model/user";
 
 declare let $: any;
 
-$(function(){
-  $(document).click(function(){
-    if($('.dropdown-item').is(':visible')){
+$(function () {
+  $(document).click(function () {
+    if ($('.dropdown-item').is(':visible')) {
       $('.dropdown-item').fadeOut();
     }
     console.log('click');
   });
-  $('#dropdown-wrapper').click(function(e){
+  $('#dropdown-wrapper').click(function (e) {
     e.stopPropagation();
   });
 });
@@ -83,8 +83,11 @@ export class HomeComponent implements OnInit {
 
     NDBResponse.list.item.forEach(
       (item: NDB_Search_Item): void => {
-        const X: DropdownItem = new DropdownItem(item.name, item);
-        this.dropdownItems.push(X);
+        console.log(item.ndbno);
+        if (typeof(item.ndbno) === "string") {
+          const X: DropdownItem = new DropdownItem(item.name, item);
+          this.dropdownItems.push(X);
+        }
       }
     );
   }

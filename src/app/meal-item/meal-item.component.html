@@ -16,7 +16,7 @@
       <tr>
         <th colspan="2">
           <b>Calories</b>
-          {{nutritionFacts.energy[0]}}
+          {{nutritionFacts.energy[0] + nutritionFacts.energy[1]}}
         </th>
       </tr>
       <tr class="thick-row">
@@ -27,7 +27,7 @@
       <tr>
         <th colspan="2">
           <b>Total Fat</b>
-          {{nutritionFacts.totalFat}}
+          {{nutritionFacts.totalFat[0] + nutritionFacts.totalFat[1]}}
         </th>
         <td>
           <b>22%</b>
@@ -38,7 +38,7 @@
         </td>
         <th>
           Saturated Fat
-          {{nutritionFacts.totalSaturated}}
+          {{nutritionFacts.totalSaturated[0] + nutritionFacts.totalSaturated[1]}}
         </th>
         <td>
           <b>22%</b>
@@ -49,7 +49,7 @@
         </td>
         <th>
           Trans Fat
-          {{nutritionFacts.totalTransFat}}
+          {{nutritionFacts.totalTransFat[0] + nutritionFacts.totalTransFat[1]}}
         </th>
         <td>
         </td>
@@ -57,7 +57,7 @@
       <tr>
         <th colspan="2">
           <b>Cholesterol</b>
-          {{nutritionFacts.cholesterol}}
+          {{nutritionFacts.cholesterol[0] + nutritionFacts.cholesterol[1]}}
         </th>
         <td>
           <b>18%</b>
@@ -66,7 +66,7 @@
       <tr>
         <th colspan="2">
           <b>Sodium</b>
-          {{nutritionFacts.sodium}}
+          {{nutritionFacts.sodium[0] + nutritionFacts.sodium[1]}}
         </th>
         <td>
           <b>2%</b>
@@ -75,7 +75,7 @@
       <tr>
         <th colspan="2">
           <b>Total Carbohydrate</b>
-          {{nutritionFacts.carbs}}
+          {{nutritionFacts.carbs[0] + nutritionFacts.carbs[1]}}
         </th>
         <td>
           <b>6%</b>
@@ -86,7 +86,7 @@
         </td>
         <th>
           Dietary Fiber
-          {{nutritionFacts.fiber}}
+          {{nutritionFacts.fiber[0] + nutritionFacts.fiber[1]}}
         </th>
         <td>
           <b>4%</b>
@@ -97,7 +97,7 @@
         </td>
         <th>
           Sugars
-          {{nutritionFacts.sugar}}
+          {{nutritionFacts.sugar[0] + nutritionFacts.sugar[1]}}
         </th>
         <td>
         </td>
@@ -105,14 +105,14 @@
       <tr class="thick-end">
         <th colspan="2">
           <b>Protein</b>
-          {{nutritionFacts.protein}}
+          {{nutritionFacts.protein[0] + nutritionFacts.protein[1]}}
         </th>
         <td>
         </td>
       </tr>
     </tbody>
   </table>
-  
+
   <table class="performance-facts__table--grid">
     <tbody>
       <tr>
@@ -137,9 +137,9 @@
       </tr>
     </tbody>
   </table>
-  
+
   <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
-  
+
   <table class="performance-facts__table--small small-info">
     <thead>
       <tr>
@@ -188,7 +188,7 @@
       </tr>
     </tbody>
   </table>
-  
+
   <p class="small-info">
     Calories per gram:
   </p>
@@ -199,5 +199,5 @@
     &bull;
     Protein 4
   </p>
-  
+
 </section>
