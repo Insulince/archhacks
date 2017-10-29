@@ -109,5 +109,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/registration"]);
   }
 
+  clickedBody(): void{
+    document.getElementById("dropdown-wrapper").style.display = "none";
+  }
+
 }
 

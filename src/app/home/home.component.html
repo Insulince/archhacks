@@ -11,16 +11,22 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 margin-index-top">
           <h1 class="center-align">Carb-O-Hydrate</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-7">
-          <input type="text" class="form-control" [(ngModel)]="searchString"/>
+        <div class="col-md-3 margin-search-top"></div>
+        <div class="col-md-6 margin-search-top">
+          <div class = "center-align">
+            <input type="text" class="form-control field" [(ngModel)]="searchString"/>
+          </div>
           <arch-hacks-dropdown [dropdownItems]="dropdownItems" (onChoose)="submitSearch($event)"></arch-hacks-dropdown>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3 margin-search-top"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 margin-buttons-top center-align">
           <button type="button" class="btn btn-warning" (click)="querySearchString();">Dropdown</button>
           <button type="button" class="btn btn-primary" (click)="submitSearch();">Carb me up baby</button>
         </div>
