@@ -1,37 +1,43 @@
-<div class="form-group">
-  <label for="username">Username</label>
-  <input type="text" class="form-control" id="username" placeholder="Enter your Username" [(ngModel)]="username"/>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="center-align">Register</h1>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter your Username" [(ngModel)]="username"/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter your Password" [(ngModel)]="password"/>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" class="form-control" id="confirm-password" placeholder="Repeat your Password" [(ngModel)]="confirmPassword"/>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter your Email" [(ngModel)]="email"/>
+    </div>
+    <div class="form-group">
+      <label for="basal-rate">Basal Rate</label>
+      <input type="number" class="form-control" id="basal-rate" placeholder="Enter as number of units per hour" [(ngModel)]="basalRate"/>
+    </div>
+    <div class="form-group">
+      <label for="carbohydrate-ratio">Carbohydrate Ratio</label>
+      <input type="number" class="form-control" id="carbohydrate-ratio" placeholder="Enter as carbohydrates per 1 unit" [(ngModel)]="carbohydrateRatio"/>
+    </div>
+    <div class="form-group">
+      <label for="correction-ratio">Corretcion Ratio</label>
+      <input type="number" class="form-control" id="correction-ratio" placeholder="Enter as quantity mg/dL blood sugar beyond target blood sugar per 1 unit" [(ngModel)]="correctionRatio"/>
+    </div>
+    <div class="form-group">
+      <label for="target-blood-sugar">Target Blood Sugar</label>
+      <input type="number" class="form-control" id="target-blood-sugar" placeholder="Enter as quantity mg/dL" [(ngModel)]="targetBloodSugar"/>
+    </div>
+    <div class="form-group">
+      <label for="insulin-on-board-duration">Insulin On Board Duration</label>
+      <input type="number" class="form-control" id="insulin-on-board-duration" placeholder="Enter as quantity of hours" [(ngModel)]="insulinOnBoarDuration"/>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="register();">Register</button>
+  </div>
 </div>
-<div class="form-group">
-  <label for="password">Password</label>
-  <input type="password" class="form-control" id="password" placeholder="Enter your Password" [(ngModel)]="password"/>
-</div>
-<div class="form-group">
-  <label for="confirm-password">Confirm Password</label>
-  <input type="password" class="form-control" id="confirm-password" placeholder="Repeat your Password" [(ngModel)]="confirmPassword"/>
-</div>
-<div class="form-group">
-  <label for="email">Email</label>
-  <input type="email" class="form-control" id="email" placeholder="Enter your Email" [(ngModel)]="email"/>
-</div>
-<div class="form-group">
-  <label for="basal-rate">Basal Rate</label>
-  <input type="number" class="form-control" id="basal-rate" placeholder="Enter as number of units per hour" [(ngModel)]="basalRate"/>
-</div>
-<div class="form-group">
-  <label for="carbohydrate-ratio">Carbohydrate Ratio</label>
-  <input type="number" class="form-control" id="carbohydrate-ratio" placeholder="Enter as carbohydrates per 1 unit" [(ngModel)]="carbohydrateRatio"/>
-</div>
-<div class="form-group">
-  <label for="correction-ratio">Corretcion Ratio</label>
-  <input type="number" class="form-control" id="correction-ratio" placeholder="Enter as quantity mg/dL blood sugar beyond target blood sugar per 1 unit" [(ngModel)]="correctionRatio"/>
-</div>
-<div class="form-group">
-  <label for="target-blood-sugar">Target Blood Sugar</label>
-  <input type="number" class="form-control" id="target-blood-sugar" placeholder="Enter as quantity mg/dL" [(ngModel)]="targetBloodSugar"/>
-</div>
-<div class="form-group">
-  <label for="insulin-on-board-duration">Insulin On Board Duration</label>
-  <input type="number" class="form-control" id="insulin-on-board-duration" placeholder="Enter as quantity of hours" [(ngModel)]="insulinOnBoarDuration"/>
-</div>
-<button type="button" class="btn btn-primary" (click)="register();">Register</button>
+

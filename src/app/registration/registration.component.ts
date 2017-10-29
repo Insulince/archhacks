@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Headers, Http, RequestOptions, Response} from "@angular/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "arch-hacks-registration",
@@ -19,7 +20,8 @@ export class RegistrationComponent implements OnInit {
   targetBloodSugar: string = "";
   insulinOnBoarDuration: string = "";
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -50,9 +52,11 @@ export class RegistrationComponent implements OnInit {
 
       this.http.post(RegistrationComponent.BACK_END_BASE_URL + "/users/register", BODY, REQUEST_OPTIONS).subscribe(
         (response: Response): void => {
-          const RESPONSE_BODY: string = response.json();
+          const RESPONSE_BODY: any = response.json();
 
           console.log(RESPONSE_BODY);
+
+          this.router.navigate(["/home"]);
         },
         (error: any): void => {
           console.error(error);

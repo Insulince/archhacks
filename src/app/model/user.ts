@@ -1,9 +1,13 @@
-export interface User {
-    email: string,
-    username: string,
-    password: string,
-    basalRate: number,
-    carbRatio: number,
-    correctionRatio: number,
-    IOBDuration: number
+export class User {
+  username: string;
+  password: string;
+  email: string;
+  basalRate: number;
+  carbohydrateRatio: number;
+  correctionRatio: number;
+  targetBloodSugar: number;
+  insulinOnBoardDuration: number;
+
+  constructor() {
+  }
 }
