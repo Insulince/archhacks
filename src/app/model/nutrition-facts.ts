@@ -29,6 +29,17 @@ export class NutritionFacts {
   public totalTransFat: any;
   public cholesterol: any;
 
+  public dailyFat: any = 65;
+  public dailySaturatedFat: any = 20;
+  public dailyCholesterol: any = 300;
+  public dailySodium: any = 2400;
+  public dailyCarbs: any = 300;
+  public dailyFiber: any = 25;
+  public dailyProtein: any = 50;
+  public dailyVitaminA: any = 5000;
+  public dailyVitaminC: any = 60;
+  public dailyCalcium: any = 1000;
+  public dailyIron: any = 18;
 
   readonly nutritionFactsKeys: Array<string> = ["Energy", "Protein", "Total lipid (fat)", "Carbohydrate, by difference", "Fiber, total dietary", "Sugars, total", "Calcium, Ca", "Iron, Fe", "Magnesium, Mg", "Phosphorus, P", "Potassium, K", "Sodium, Na", "Zinc, Zn", "Vitamin C, total ascorbic acid", "Thiamin", "Riboflavin", "Niacin", "Vitamin B-6", "Vitamin B-12", "Vitamin A, IU", "Vitamin D", "Fatty acids, total saturated", "Fatty acids, total monounsaturated", "Fatty acids, total polyunsaturated", "Fatty acids, total trans", "Cholesterol"]
 
@@ -44,18 +55,19 @@ export class NutritionFacts {
               break;
               case "Protein": {
                 this.protein = [nutrient.value, nutrient.unit];
+
               }
               break;
               case "Total lipid (fat)": {
-                this.totalFat = [nutrient.value, nutrient.unit];
+                this.totalFat = [nutrient.value, nutrient.unit, this.getDailyPercentage(nutrient.value, this.dailyFat)];
               }
               break;
               case "Carbohydrate, by difference": {
-                this.carbs = [nutrient.value, nutrient.unit];
+                this.carbs = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyCarbs)];
               }
               break;
               case "Fiber, total dietary": {
-                this.fiber = [nutrient.value, nutrient.unit];
+                this.fiber = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyFiber)];
               }
               break;
               case "Sugars, total": {
@@ -63,11 +75,11 @@ export class NutritionFacts {
               }
               break;
               case "Calcium, Ca": {
-                this.calcium = [nutrient.value, nutrient.unit];
+                this.calcium = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyCalcium)];
               }
               break;
               case "Iron, Fe": {
-                this.iron = [nutrient.value, nutrient.unit];
+                this.iron = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyIron)];
               }
               break;
               case "Magnesium, Mg": {
@@ -83,7 +95,7 @@ export class NutritionFacts {
               }
               break;
               case "Sodium, Na": {
-                this.sodium = [nutrient.value, nutrient.unit];
+                this.sodium = [nutrient.value, nutrient.unit, this.getDailyPercentage(nutrient.value, this.dailySodium)];
               }
               break;
               case "Zinc, Zn": {
@@ -91,7 +103,7 @@ export class NutritionFacts {
               }
               break;
               case "Vitamin C, total ascorbic acid": {
-                this.vitaminC = [nutrient.value, nutrient.unit];
+                this.vitaminC = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyVitaminC)];
               }
               break;
               case "Thiamin": {
@@ -115,7 +127,7 @@ export class NutritionFacts {
               }
               break;
               case "Vitamin A, IU": {
-                this.vitaminA = [nutrient.value, nutrient.unit];
+                this.vitaminA = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyVitaminA)];
               }
               break;
               case "Vitamin D": {
@@ -123,7 +135,7 @@ export class NutritionFacts {
               }
               break;
               case "Fatty acids, total saturated": {
-                this.totalSaturated = [nutrient.value, nutrient.unit];
+                this.totalSaturated = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailySaturatedFat)];
               }
               break;
               case "Fatty acids, total monounsaturated": {
@@ -139,7 +151,7 @@ export class NutritionFacts {
               }
               break;
               case "Cholesterol": {
-                this.cholesterol = [nutrient.value, nutrient.unit];
+                this.cholesterol = [nutrient.value, nutrient.unit, , this.getDailyPercentage(nutrient.value, this.dailyCholesterol)];
               }
               break;
               default:
@@ -151,4 +163,10 @@ export class NutritionFacts {
       }
     );
   }
+
+  getDailyPercentage(dailyValue, nutrientValue): string{
+    let percentage = (dailyValue / nutrientValue).toFixed(0);
+    return percentage;
+  }
+
 }
