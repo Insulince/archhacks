@@ -2,32 +2,32 @@ import {NDB_Nutrition_Food_Object, NDB_Nutrition_Nutrient, NDB_Nutrition_Respons
 
 export class NutritionFacts {
 
-  public energy: any;
-  public protein: any;
-  public totalFat: any;
-  public carbs: any;
-  public fiber: any;
-  public sugar: any;
-  public calcium: any;
-  public iron: any;
-  public magnesium: any;
-  public phosphorus: any;
-  public potassium: any;
-  public sodium: any;
-  public zinc: any;
-  public vitaminC: any;
-  public thiamin: any;
-  public riboflavin: any;
-  public niacin: any;
-  public vitaminB6: any;
-  public vitaminB12: any;
-  public vitaminA: any;
-  public vitaminD: any;
-  public totalSaturated: any;
-  public totalMonosaturated: any;
-  public totalPolysaturated: any;
-  public totalTransFat: any;
-  public cholesterol: any;
+  public energy: Array<any> = [0, "kcal", 0];
+  public protein: Array<any> = [0, "g", 0];
+  public totalFat: Array<any> = [0, "g", 0];
+  public carbs: Array<any> = [0, "g", 0];
+  public fiber: Array<any> = [0, "g", 0];
+  public sugar: Array<any> = [0, "g", 0];
+  public calcium: Array<any> = [0, "%", 0];
+  public iron: Array<any> = [0, "%", 0];
+  public magnesium: Array<any> = [0, "%", 0];
+  public phosphorus: Array<any> = [0, "%", 0];
+  public potassium: Array<any> = [0, "%", 0];
+  public sodium: Array<any> = [0, "mg", 0];
+  public zinc: Array<any> = [0, "%", 0];
+  public vitaminC: Array<any> = [0, "%", 0];
+  public thiamin: Array<any> = [0, "%", 0];
+  public riboflavin: Array<any> = [0, "%", 0];
+  public niacin: Array<any> = [0, "%", 0];
+  public vitaminB6: Array<any> = [0, "%", 0];
+  public vitaminB12: Array<any> = [0, "%", 0];
+  public vitaminA: Array<any> = [0, "%", 0];
+  public vitaminD: Array<any> = [0, "%", 0];
+  public totalSaturated: Array<any> = [0, "g", 0];
+  public totalMonosaturated: Array<any> = [0, "g", 0];
+  public totalPolysaturated: Array<any> = [0, "g", 0];
+  public totalTransFat: Array<any> = [0, "g", 0];
+  public cholesterol: Array<any> = [0, "mg", 0];
 
 
   readonly nutritionFactsKeys: Array<string> = ["Energy", "Protein", "Total lipid (fat)", "Carbohydrate, by difference", "Fiber, total dietary", "Sugars, total", "Calcium, Ca", "Iron, Fe", "Magnesium, Mg", "Phosphorus, P", "Potassium, K", "Sodium, Na", "Zinc, Zn", "Vitamin C, total ascorbic acid", "Thiamin", "Riboflavin", "Niacin", "Vitamin B-6", "Vitamin B-12", "Vitamin A, IU", "Vitamin D", "Fatty acids, total saturated", "Fatty acids, total monounsaturated", "Fatty acids, total polyunsaturated", "Fatty acids, total trans", "Cholesterol"]
